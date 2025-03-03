@@ -1,0 +1,56 @@
+Overall Style Direction
+Create a minimalist, typography-focused website inspired by Spin Studio's (spin.co.uk) visual language but customized for a freelance graphic designer. Maintain their clean, professional aesthetic with ample white space and bold typography.
+Layout & Structure
+
+Header: Minimal header with designer's name/logo on the left, navigation on the right
+Hero Section: Full-width background image (to be replaced with designer's own imagery) with a bold, centered headline statement about design philosophy
+Homepage: Simple grid layout of featured projects with minimal text
+Navigation: Simple text-only navigation menu with: "Work", "About", "Contact", "Journal" (similar to Spin, but replace "Gallery" with "Contact")
+
+Typography
+
+Use typography as a key visual element
+Primary font: Sans-serif font family (similar to Spin's use of plain, confident typography)
+Limited font sizes (2-3 max) with clear hierarchy
+Headlines should be bold, uppercase, and impactful
+Body text should be clean, legible, and minimal
+
+Color Palette
+
+Predominantly black text on white background
+Limited color usage - consider a single accent color for interactive elements
+High contrast between elements
+
+Content Style
+
+Brief, confident, slightly playful but professional writing style
+Use punchy, concise statements rather than lengthy explanations
+Adopt Spin's straightforward tone: "We develop ideas that connect brands with audiences," becomes something like "I craft visual stories that make brands unforgettable"
+Incorporate occasional creative language while maintaining professionalism
+
+Project Display
+
+Large, impactful project imagery
+Minimal project descriptions
+Clean grid layout with ample whitespace between projects
+Hover effects should be subtle (similar to Spin's approach)
+
+Contact Section
+
+Clean, minimal contact form
+Direct, approachable invitation to get in touch
+Include social media links if applicable
+Consider adding a brief statement about your approach to client work
+
+Responsive Considerations
+
+Maintain the clean, minimal aesthetic across all devices
+Simplified navigation for mobile (possibly hamburger menu)
+Ensure large typography remains impactful but not overwhelming on smaller screens
+
+Technical Notes
+
+Fast loading times are essential
+Clean page transitions similar to Spin's website
+Consider minimal animations only where they enhance user experience
+Ensure all text is easily readable against background images
