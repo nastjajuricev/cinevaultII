@@ -122,14 +122,37 @@ export default function Work() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5 }}
-                    className="aspect-[4/3] bg-muted relative overflow-hidden group cursor-pointer"
+                    className="relative aspect-[4/3] bg-muted overflow-hidden group cursor-pointer"
                   >
-                    <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
-                      <h3 className="text-lg font-bold mb-2">{project.title}</h3>
-                      <p className="text-sm text-muted-foreground">
+                    {/* Project Background */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10 transition-transform duration-700 group-hover:scale-110" />
+
+                    {/* Content Overlay */}
+                    <div className="absolute inset-0 bg-background/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                    {/* Project Info */}
+                    <motion.div 
+                      className="relative h-full flex flex-col items-center justify-center p-6 text-center"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                    >
+                      <h3 className="text-lg font-bold mb-2 transform transition-transform duration-300 group-hover:translate-y-0 translate-y-4">
+                        {project.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
                         {project.description}
                       </p>
-                    </div>
+
+                      {/* View Project Button */}
+                      <motion.button
+                        className="mt-4 px-4 py-2 text-sm border border-primary/20 rounded-full opacity-0 transform translate-y-4 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 hover:bg-primary/5"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        View Project
+                      </motion.button>
+                    </motion.div>
                   </motion.div>
                 ))}
               </div>
