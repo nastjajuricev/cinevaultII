@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
 
 export default function Work() {
+  const [, navigate] = useLocation();
+
   const categories = [
     {
       name: "Brand Identity",
@@ -30,21 +33,6 @@ export default function Work() {
           id: 4,
           title: "E-commerce Platform",
           description: "Complete UI redesign for an online marketplace.",
-        },
-      ],
-    },
-    {
-      name: "Digital",
-      projects: [
-        {
-          id: 5,
-          title: "Interactive Campaign",
-          description: "Digital campaign assets for a major product launch.",
-        },
-        {
-          id: 6,
-          title: "Social Media Package",
-          description: "Comprehensive social media design system.",
         },
       ],
     },
@@ -80,10 +68,16 @@ export default function Work() {
     },
   ];
 
-  const scrollToCategory = (categoryName: string) => {
-    const element = document.getElementById(categoryName.toLowerCase().replace(' ', '-'));
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const navigationCategories = [...categories, { name: "Digital", isProtected: true }];
+
+  const handleCategoryClick = (category: { name: string; isProtected?: boolean }) => {
+    if (category.isProtected) {
+      navigate('/digital');
+    } else {
+      const element = document.getElementById(category.name.toLowerCase().replace(' ', '-'));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }
   };
 
@@ -98,11 +92,11 @@ export default function Work() {
 
         {/* Category Navigation */}
         <div className="flex flex-wrap gap-3 mb-12">
-          {categories.map((category) => (
+          {navigationCategories.map((category) => (
             <Button
               key={category.name}
               variant="outline"
-              onClick={() => scrollToCategory(category.name)}
+              onClick={() => handleCategoryClick(category)}
               className="text-sm"
             >
               {category.name}

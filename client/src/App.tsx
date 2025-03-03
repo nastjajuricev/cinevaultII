@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import Work from "@/pages/Work";
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
+import DigitalWork from "@/pages/DigitalWork";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -16,6 +17,7 @@ function Router() {
       <Route path="/work" component={Work} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
+      <Route path="/digital" component={DigitalWork} />
       <Route component={NotFound} />
     </Switch>
   );
