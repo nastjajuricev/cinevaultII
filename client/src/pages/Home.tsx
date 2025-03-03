@@ -24,7 +24,7 @@ export default function Home() {
       <section className="container mx-auto px-4 py-16">
         <h2 className="text-2xl font-bold mb-8 tracking-tight">Selected Work</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[1, 2].map((i) => (
+          {[1, 2, 3, 4].map((i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}

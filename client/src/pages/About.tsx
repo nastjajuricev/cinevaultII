@@ -10,17 +10,20 @@ export default function About() {
         className="max-w-2xl mx-auto"
       >
         <h1 className="text-3xl font-bold mb-8 tracking-tight">About</h1>
-        
+
         <div className="prose prose-neutral dark:prose-invert">
           <p className="text-lg mb-6">
-            I'm a graphic designer with over a decade of experience crafting visual identities and digital experiences for forward-thinking brands and businesses.
+            I'm a graphic designer with over a decade of experience crafting visual identities 
+            and digital experiences for forward-thinking brands and businesses.
           </p>
-          
+
           <h2 className="text-xl font-bold mt-12 mb-4">Approach</h2>
           <p>
-            My work is driven by a deep understanding of typography, composition, and the principles of modern design. I believe in creating lasting solutions that communicate clearly and effectively.
+            My work is driven by a deep understanding of typography, composition, and the 
+            principles of modern design. I believe in creating lasting solutions that 
+            communicate clearly and effectively.
           </p>
-          
+
           <h2 className="text-xl font-bold mt-12 mb-4">Experience</h2>
           <ul>
             <li>Brand Identity Design</li>
@@ -29,6 +32,12 @@ export default function About() {
             <li>Typography</li>
             <li>Art Direction</li>
           </ul>
+
+          <h2 className="text-xl font-bold mt-12 mb-4">Recognition</h2>
+          <p>
+            [Placeholder] Featured in leading design publications and awarded for excellence 
+            in branding and typography.
+          </p>
         </div>
       </motion.div>
     </div>

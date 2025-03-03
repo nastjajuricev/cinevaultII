@@ -1,45 +1,29 @@
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useMutation } from "@tanstack/react-query";
 import { motion } from "framer-motion";
-import { useToast } from "@/hooks/use-toast";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
-import { insertContactSchema, type InsertContact } from "@shared/schema";
-import { apiRequest } from "@/lib/queryClient";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { useForm } from "react-hook-form";
 
 export default function Contact() {
-  const { toast } = useToast();
-  
-  const form = useForm<InsertContact>({
-    resolver: zodResolver(insertContactSchema),
+  const form = useForm({
     defaultValues: {
       name: "",
       email: "",
-      message: ""
-    }
+      message: "",
+    },
   });
 
-  const mutation = useMutation({
-    mutationFn: (data: InsertContact) =>
-      apiRequest("POST", "/api/contact", data),
-    onSuccess: () => {
-      toast({
-        title: "Message sent",
-        description: "Thank you for your message. I'll get back to you soon.",
-      });
-      form.reset();
-    },
-    onError: () => {
-      toast({
-        title: "Error",
-        description: "There was a problem sending your message. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
+  const onSubmit = (data: any) => {
+    console.log(data);
+  };
 
   return (
     <div className="container mx-auto px-4 py-16">
@@ -50,13 +34,14 @@ export default function Contact() {
         className="max-w-xl mx-auto"
       >
         <h1 className="text-3xl font-bold mb-8 tracking-tight">Contact</h1>
-        
+
         <p className="text-lg mb-8 text-foreground/60">
-          Let's work together. Send me a message about your project and I'll get back to you soon.
+          Let's work together. Send me a message about your project and I'll get
+          back to you soon.
         </p>
 
         <Form {...form}>
-          <form onSubmit={form.handleSubmit((data) => mutation.mutate(data))} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <FormField
               control={form.control}
               name="name"
@@ -103,12 +88,8 @@ export default function Contact() {
               )}
             />
 
-            <Button
-              type="submit"
-              className="w-full"
-              disabled={mutation.isPending}
-            >
-              {mutation.isPending ? "Sending..." : "Send Message"}
+            <Button type="submit" className="w-full">
+              Send Message
             </Button>
           </form>
         </Form>
