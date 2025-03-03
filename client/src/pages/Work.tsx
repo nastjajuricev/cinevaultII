@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 
 export default function Work() {
   const categories = [
@@ -79,6 +80,13 @@ export default function Work() {
     },
   ];
 
+  const scrollToCategory = (categoryName: string) => {
+    const element = document.getElementById(categoryName.toLowerCase().replace(' ', '-'));
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <div className="container mx-auto px-4 py-16">
       <motion.div
@@ -88,10 +96,25 @@ export default function Work() {
       >
         <h1 className="text-3xl font-bold mb-8 tracking-tight">Work</h1>
 
+        {/* Category Navigation */}
+        <div className="flex flex-wrap gap-3 mb-12">
+          {categories.map((category) => (
+            <Button
+              key={category.name}
+              variant="outline"
+              onClick={() => scrollToCategory(category.name)}
+              className="text-sm"
+            >
+              {category.name}
+            </Button>
+          ))}
+        </div>
+
         <div className="space-y-16">
           {categories.map((category, categoryIndex) => (
             <motion.section
               key={category.name}
+              id={category.name.toLowerCase().replace(' ', '-')}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
